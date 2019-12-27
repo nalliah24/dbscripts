@@ -1,0 +1,44 @@
+
+ -- Microservice (Expense Report) - Build Sept 2019 **/
+
+/** ----- INSERT ----- **/
+USE [mn24-expenses]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+
+-- category lookup
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('TRVL', 'Travel')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('FOOD', 'Food and Bev')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('SUPL', 'Office Supplies')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('TAXI', 'Taxi and Transportation')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('ACCM', 'Hotel Accomodation')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('ENT1', 'Entertainment')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('PROM', 'Business Promotions')
+GO
+INSERT INTO [dbo].[category_lookup] ([category], [description]) VALUES ('OTHR', 'Other')
+GO
+
+
+
+-- TEMP
+--INSERT INTO [dbo].[expensed_transactions]
+--	([user_id],
+--	[trans_type],
+--	[description],
+--	[amount],
+--	[tax],
+--	[trans_date],
+--	[category],
+--	[status])
+--VALUES ('user2', 'DR', 'Holiday INN NY', 1650.00, 750.00, GETDATE(), 'ACCM', 'New')
+--GO

@@ -1,0 +1,20 @@
+
+/** User Profile (For Expense Report) Report - Build Sept 2019 **/
+
+/** ----- DROP TABLE ----- **/
+USE [mn24-userprofile]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+DROP TABLE [dbo].[user_credentials]
+GO
+DROP TABLE [dbo].[users]
+GO
+DROP TABLE [dbo].[cost_centre_user_approval]
+GO
+DROP TABLE [dbo].[cost_centre]
+GO
+/** ------------------------------------------------ **/

@@ -1,0 +1,18 @@
+
+/** Transaction - Microservice (Expense Report) - Build Sept 2019 **/
+
+/** ----- DROP TABLE ----- **/
+USE [mn24-transactions]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+DROP TABLE [dbo].[transactions]
+GO
+-- DROP TABLE [dbo].[users]
+-- GO
+DROP TABLE [dbo].[category_lookup]
+GO
+/** ------------------------------------------------ **/

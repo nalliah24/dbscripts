@@ -1,0 +1,53 @@
+
+/** User Profile (For Expense Report) Report - Build Sept 2019 **/
+
+USE [mn24-userprofile]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+/** ----- CREATE TABLE ----- **/
+
+CREATE TABLE [dbo].[users](
+	[user_id] [varchar] (10) NOT NULL,
+	[first_name] [varchar](30) NOT NULL,
+	[last_name] [varchar](30) NOT NULL,
+	[active] [varchar] (3) NULL,
+	[manager_id] [varchar] (10) NULL,
+	[cost_centre] [varchar] (10) NULL,
+	[email] [varchar] (50) NULL,
+	[updated_date] [date] NULL,
+	CONSTRAINT [pk_users] PRIMARY KEY CLUSTERED
+		([user_id])
+)
+GO
+
+CREATE TABLE [dbo].[user_credentials](
+	[user_id] [varchar] (10) NOT NULL,
+	[password] [varchar] (10) NULL,
+	CONSTRAINT [pk_user_credentials] PRIMARY KEY CLUSTERED
+		([user_id]),
+	CONSTRAINT [fk_user_user_credentials] FOREIGN KEY ([user_id])
+		REFERENCES [dbo].[users] ([user_id])
+)
+GO
+
+-- Costcentre
+CREATE TABLE [dbo].[cost_centre](
+	[id] [varchar](10) NOT NULL,
+	[description] [varchar] (100) NOT NULL,
+	CONSTRAINT [pk_cost_centre] PRIMARY KEY CLUSTERED
+		([id])
+)
+GO
+
+CREATE TABLE [dbo].[cost_centre_user_approval](
+	[id] [varchar](10) NOT NULL,
+	[user_id] [varchar] (10) NOT NULL,
+	[limit] [decimal](10,2) NOT NULL,
+	CONSTRAINT [uc_cc_user_id] UNIQUE CLUSTERED
+		([id], [user_id])
+)
+GO

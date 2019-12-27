@@ -1,0 +1,87 @@
+
+/** User Profile (For Expense Report) Report - Build Sept 2019 **/
+
+USE [mn24-userprofile]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+-- it staff
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user1', 'Major', 'Nalliah', 'Y', 'user4', 'IT1000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user2', 'Kumar', 'Sethu', 'Y', 'user4', 'IT1000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user3', 'Rohan', 'Senegal', 'Y', 'user5', 'IT1000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+
+-- it managers
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user4', 'Reynold', 'Kamaron', 'Y', 'user6', 'IT1000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user5', 'Steve', 'Richard', 'Y', 'user6', 'IT1000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user6', 'Don', 'Clancy', 'Y', 'user10', 'IT1000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+
+-- marketing staff
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user7', 'Mary', 'Hamilton', 'Y', 'user8', 'MK2000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+-- marketing managers
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user8', 'Ashley', 'Mehan', 'Y', 'user9', 'MK2000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user9', 'Joe', 'Sherep', 'Y', 'user10', 'MK2000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+-- top mgr
+INSERT INTO [dbo].[users] ([user_id], [first_name], [last_name], [active], [manager_id], [cost_centre], [email], [updated_date])
+	VALUES ('user10', 'Jennifer', 'Jackson', 'Y', 'user99', 'MK2000', 'majuurnalliah@gmail.com', GETDATE())
+GO
+/** -------------------------- **/
+
+
+
+
+INSERT INTO [dbo].[user_credentials] ([user_id], [password])
+	VALUES ('user1', 'user1')
+GO
+INSERT INTO [dbo].[user_credentials] ([user_id], [password])
+	VALUES ('user2', 'user2')
+GO
+INSERT INTO [dbo].[user_credentials] ([user_id], [password])
+	VALUES ('user3', 'user3')
+GO
+INSERT INTO [dbo].[user_credentials] ([user_id], [password])
+	VALUES ('user4', 'user4')
+GO
+INSERT INTO [dbo].[user_credentials] ([user_id], [password])
+	VALUES ('user5', 'user5')
+GO
+
+
+-- Costcentre data
+
+
+INSERT INTO [dbo].[cost_centre] ([id], [description]) VALUES ('IT1000', 'Information Technology')
+GO
+INSERT INTO [dbo].[cost_centre] ([id], [description]) VALUES ('MK2000', 'Marketing and Promotions')
+GO
+
+INSERT INTO [dbo].[cost_centre_user_approval] ([id], [user_id], [limit]) VALUES ('IT1000', 'user4', 1000.00)
+GO
+INSERT INTO [dbo].[cost_centre_user_approval] ([id], [user_id], [limit]) VALUES ('IT1000', 'user5', 5000.00)
+GO
+INSERT INTO [dbo].[cost_centre_user_approval] ([id], [user_id], [limit]) VALUES ('IT1000', 'user6', 8000.00)
+GO
+INSERT INTO [dbo].[cost_centre_user_approval] ([id], [user_id], [limit]) VALUES ('MK2000', 'user8', 1000.00)
+GO
+INSERT INTO [dbo].[cost_centre_user_approval] ([id], [user_id], [limit]) VALUES ('MK2000', 'user9', 5000.00)
+GO

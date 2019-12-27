@@ -1,0 +1,19 @@
+/** User Profile (For Expense Report) Report - Build Sept 2019 **/
+
+USE [mn24-userprofile]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+-- DELETE ALL DATA IN ALL TABLES --
+
+DELETE FROM [dbo].[user_credentials]
+GO
+DELETE FROM [dbo].[users]
+GO
+DELETE FROM [dbo].[cost_centre]
+GO
+DELETE FROM [dbo].[cost_centre_user_approval]
+GO

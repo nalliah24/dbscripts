@@ -1,0 +1,53 @@
+
+/** Transaction - Microservice (Expense Report) - Build Sept 2019 **/
+
+/** ----- Create TABLE ----- **/
+USE [mn24-transactions]
+GO
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[transactions](
+	[id] UNIQUEIDENTIFIER default NEWID(),
+	[user_id] [varchar] (10) NOT NULL,
+	[trans_type] [varchar](10) NOT NULL,
+	[description] [varchar](60) NOT NULL,
+	[amount] [decimal](10,2) NOT NULL,
+	[tax] [decimal](10,2) NULL,
+	[trans_date] [datetime] NULL,
+	[category] [varchar](10) NULL,
+	[status] [varchar] (10) NULL,
+	[inserted_date] [datetime] NOT NULL DEFAULT GETDATE(),
+	[updated_date] [datetime] NULL,
+	CONSTRAINT [pk_transactions] PRIMARY KEY CLUSTERED
+		([id])
+)
+GO
+
+-- Category lookup
+CREATE TABLE [dbo].[category_lookup](
+	[category] [varchar](10) NOT NULL,
+	[description] [varchar] (100) NOT NULL,
+	CONSTRAINT [pk_category_lookup] PRIMARY KEY CLUSTERED
+		([category])
+)
+GO
+
+
+-- Removed for now. NOT required
+/**
+CREATE TABLE [dbo].[users](
+	[user_id] [varchar] (10) NOT NULL,
+	[first_name] [varchar](30) NOT NULL,
+	[last_name] [varchar](30) NOT NULL,
+	[cost_centre] [varchar] (10) NULL,
+	[email] [varchar] (50) NULL,
+	[updated_date] [datetime] NULL DEFAULT GETDATE(),
+	CONSTRAINT [pk_users] PRIMARY KEY CLUSTERED
+		([user_id])
+)
+GO
+**/
+
