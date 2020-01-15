@@ -35,9 +35,6 @@ CREATE TABLE [dbo].[category_lookup](
 )
 GO
 
-
--- Removed for now. NOT required
-/**
 CREATE TABLE [dbo].[users](
 	[user_id] [varchar] (10) NOT NULL,
 	[first_name] [varchar](30) NOT NULL,
@@ -49,5 +46,35 @@ CREATE TABLE [dbo].[users](
 		([user_id])
 )
 GO
-**/
 
+CREATE TABLE [dbo].[expenses](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[user_id] [varchar] (10) NOT NULL,
+	[cost_centre] [varchar] (10) NULL,
+	[approver_id] [varchar] (10) NULL,
+	[status] [varchar] (10) NULL,
+	[submitted_date] [datetime] DEFAULT GETDATE(),
+	[updated_date] [date] NULL DEFAULT GETDATE(),
+	CONSTRAINT [pk_expenses] PRIMARY KEY CLUSTERED
+		([id]),
+	CONSTRAINT [fk_user_expenses] FOREIGN KEY ([user_id])
+		REFERENCES [dbo].[users] ([user_id])
+)
+GO
+
+CREATE TABLE [dbo].[expensed_transactions](
+	[id] UNIQUEIDENTIFIER default NEWID(),
+	[expense_id] [int] NOT NULL,
+	[trans_type] [varchar](10) NOT NULL,
+	[description] [varchar](60) NOT NULL,
+	[amount] [decimal](10,2) NOT NULL,
+	[tax] [decimal](10,2) NULL,
+	[trans_date] [datetime] NOT NULL,
+	[category] [varchar](10) NULL,
+	[updated_date] [datetime] NULL DEFAULT GETDATE(),
+	CONSTRAINT [pk_expd_transactions] PRIMARY KEY CLUSTERED
+		([id]),
+	CONSTRAINT [fk_exp_transactions] FOREIGN KEY ([expense_id])
+		REFERENCES [dbo].[expenses] ([id])
+)
+GO

@@ -13,5 +13,9 @@ DELETE FROM [dbo].[transactions]
 GO
 DELETE FROM [dbo].[category_lookup]
 GO
---DELETE FROM [dbo].[users]
---GO
+DELETE FROM [dbo].[users]
+GO
+DELETE FROM [dbo].[expensed_transactions]
+GO
+DELETE FROM [dbo].[expenses]
+GO

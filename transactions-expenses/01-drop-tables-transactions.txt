@@ -9,10 +9,14 @@ GO
 SET ANSI_PADDING ON
 GO
 
+DROP TABLE [dbo].[expensed_transactions]
+GO
+DROP TABLE [dbo].[expenses]
+GO
 DROP TABLE [dbo].[transactions]
 GO
--- DROP TABLE [dbo].[users]
--- GO
+DROP TABLE [dbo].[users]
+GO
 DROP TABLE [dbo].[category_lookup]
 GO
 /** ------------------------------------------------ **/
